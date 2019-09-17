@@ -25,6 +25,12 @@ import (
 )
 
 const (
+	// ProductCode
+	XBTUSD = "XBTUSD"
+	XBTU19 = "XBTU19"
+	XBTZ19 = "XBTZ19"
+	ETHUSD = "ETHUSD"
+
 	// BUY is side string
 	BUY = "buy"
 	// SELL is side string
