@@ -32,9 +32,9 @@ const (
 	ETHUSD = "ETHUSD"
 
 	// BUY is side string
-	BUY = "buy"
+	BUY = "Buy"
 	// SELL is side string
-	SELL = "sell"
+	SELL = "Sell"
 
 	// OrderType
 	LIMIT           = "Limit"
