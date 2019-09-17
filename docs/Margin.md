@@ -1,0 +1,50 @@
+# Margin
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Account** | **int** |  | [default to null]
+**Currency** | **string** |  | [default to null]
+**RiskLimit** | **int** |  | [optional] [default to null]
+**PrevState** | **string** |  | [optional] [default to null]
+**State** | **string** |  | [optional] [default to null]
+**Action** | **string** |  | [optional] [default to null]
+**Amount** | **int** |  | [optional] [default to null]
+**PendingCredit** | **int** |  | [optional] [default to null]
+**PendingDebit** | **int** |  | [optional] [default to null]
+**ConfirmedDebit** | **int** |  | [optional] [default to null]
+**PrevRealisedPnl** | **int** |  | [optional] [default to null]
+**PrevUnrealisedPnl** | **int** |  | [optional] [default to null]
+**GrossComm** | **int** |  | [optional] [default to null]
+**GrossOpenCost** | **int** |  | [optional] [default to null]
+**GrossOpenPremium** | **int** |  | [optional] [default to null]
+**GrossExecCost** | **int** |  | [optional] [default to null]
+**GrossMarkValue** | **int** |  | [optional] [default to null]
+**RiskValue** | **int** |  | [optional] [default to null]
+**TaxableMargin** | **int** |  | [optional] [default to null]
+**InitMargin** | **int** |  | [optional] [default to null]
+**MaintMargin** | **int** |  | [optional] [default to null]
+**SessionMargin** | **int** |  | [optional] [default to null]
+**TargetExcessMargin** | **int** |  | [optional] [default to null]
+**VarMargin** | **int** |  | [optional] [default to null]
+**RealisedPnl** | **int** |  | [optional] [default to null]
+**UnrealisedPnl** | **int** |  | [optional] [default to null]
+**IndicativeTax** | **int** |  | [optional] [default to null]
+**UnrealisedProfit** | **int** |  | [optional] [default to null]
+**SyntheticMargin** | **int** |  | [optional] [default to null]
+**WalletBalance** | **int** |  | [optional] [default to null]
+**MarginBalance** | **int** |  | [optional] [default to null]
+**MarginBalancePcnt** | **float64** |  | [optional] [default to 0.0]
+**MarginLeverage** | **float64** |  | [optional] [default to 0.0]
+**MarginUsedPcnt** | **float64** |  | [optional] [default to 0.0]
+**ExcessMargin** | **int** |  | [optional] [default to null]
+**ExcessMarginPcnt** | **float64** |  | [optional] [default to 0.0]
+**AvailableMargin** | **int** |  | [optional] [default to null]
+**WithdrawableMargin** | **int** |  | [optional] [default to null]
+**Timestamp** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
+**GrossLastValue** | **int** |  | [optional] [default to null]
+**Commission** | **float64** |  | [optional] [default to 0.0]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
