@@ -24,6 +24,21 @@ import (
 	"unicode/utf8"
 )
 
+const (
+	// BUY is side string
+	BUY = "buy"
+	// SELL is side string
+	SELL = "sell"
+
+	// OrderType
+	LIMIT           = "Limit"
+	MARKET          = "Market"
+	STOP            = "Stop"
+	STOPLIMIT       = "StopLimit"
+	MARKETIFTOUCHED = "MarketIfTouched"
+	LIMITIFTOUCHED  = "LimitIfTouched"
+)
+
 var (
 	jsonCheck = regexp.MustCompile("(?i:[application|text]/json)")
 	xmlCheck  = regexp.MustCompile("(?i:[application|text]/xml)")
