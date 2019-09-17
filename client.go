@@ -37,6 +37,12 @@ const (
 	STOPLIMIT       = "StopLimit"
 	MARKETIFTOUCHED = "MarketIfTouched"
 	LIMITIFTOUCHED  = "LimitIfTouched"
+
+	// PostOnly
+	POSTONLY = "ParticipateDoNotInitiate"
+
+	// TimeInForce
+	IOC = "ImmediateOrCancel"
 )
 
 var (
