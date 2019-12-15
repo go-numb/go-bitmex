@@ -14,6 +14,7 @@ const (
 
 // Limit is API Limit struct
 type Limit struct {
+	Wait   int       // 429 too much request時の待機時間
 	Limit  int       // Limit is resets count
 	Remain int       // Remain is 残Requests
 	Reset  time.Time // Reset Remainの詳細時間(sec未満なし)
@@ -23,6 +24,7 @@ type Limit struct {
 func NewLimit(isPrivate bool) *Limit {
 	if isPrivate {
 		return &Limit{
+			Wait:   0,
 			Limit:  APIREMAIN,
 			Remain: APIREMAIN,
 			Reset:  time.Now().Add(time.Minute),
@@ -30,6 +32,7 @@ func NewLimit(isPrivate bool) *Limit {
 	}
 
 	return &Limit{
+		Wait:   0,
 		Limit:  APIREMAIN,
 		Remain: APIREMAIN,
 		Reset:  time.Now().Add(time.Minute),
@@ -37,7 +40,14 @@ func NewLimit(isPrivate bool) *Limit {
 }
 
 // FromHeader X-xxxからLimitを取得
+// If you are limited, you will receive a 429 response and an additional header, Retry-After, that indicates the number of seconds you should sleep before retrying.
 func (p *Limit) FromHeader(h http.Header) {
+	wait := h.Get("Retry-After") // リセット後の残回数
+	if wait != "" {
+		p.Wait, _ = strconv.Atoi(wait)
+	} else {
+		p.Wait = 0
+	}
 	period := h.Get("x-ratelimit-limit") // リセット後の残回数
 	if period != "" {
 		p.Limit, _ = strconv.Atoi(period)

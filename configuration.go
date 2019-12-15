@@ -27,7 +27,7 @@ func NewConfiguration() *Configuration {
 	return &Configuration{
 		BasePath:      "https://www.bitmex.com/api/v1",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "bitmexgo/1.0.0",
+		UserAgent:     "go-bitmex/1.0.0",
 	}
 }
 
@@ -35,7 +35,7 @@ func NewTestnetConfiguration() *Configuration {
 	return &Configuration{
 		BasePath:      "https://testnet.bitmex.com/api/v1",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "bitmexgo/1.0.0",
+		UserAgent:     "go-bitmex/1.0.0",
 	}
 }
 
