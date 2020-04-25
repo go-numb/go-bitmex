@@ -21,8 +21,9 @@ import (
 )
 
 const (
-	ENDPOINT                   = "wss://www.bitmex.com/realtime"
-	READDEADLINE time.Duration = 300 * time.Second
+	ENDPOINT                      = "wss://www.bitmex.com/realtime"
+	ENDPOINTTESTNET               = "wss://testnet.bitmex.com/realtime"
+	READDEADLINE    time.Duration = 300 * time.Second
 
 	AUTHKEY = "auth"
 )
@@ -125,8 +126,9 @@ type Client struct {
 }
 
 type Auth struct {
-	Key    string
-	Secret string
+	IsTestnet bool
+	Key       string
+	Secret    string
 }
 
 func New(ctx context.Context, l *log.Logger) *Client {
@@ -139,7 +141,12 @@ func New(ctx context.Context, l *log.Logger) *Client {
 		auth = nil
 	}
 
-	conn, _, err := websocket.DefaultDialer.Dial(ENDPOINT, nil)
+	endpoint := ENDPOINT
+	if auth.IsTestnet {
+		endpoint = ENDPOINTTESTNET
+	}
+
+	conn, _, err := websocket.DefaultDialer.Dial(endpoint, nil)
 	if err != nil {
 		return nil
 	}
@@ -150,10 +157,11 @@ func New(ctx context.Context, l *log.Logger) *Client {
 	}
 }
 
-func NewAuth(key, secret string) context.Context {
+func NewAuth(isTestnet bool, key, secret string) context.Context {
 	return context.WithValue(context.TODO(), AUTHKEY, &Auth{
-		Key:    key,
-		Secret: secret,
+		IsTestnet: isTestnet,
+		Key:       key,
+		Secret:    secret,
 	})
 }
 
